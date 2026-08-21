@@ -11,7 +11,7 @@ function ExperienceEntry({ entry, onChange, onRemove }) {
                 <input type="text" name="company" value={entry.company} onChange={handleFieldChange}></input>
             </label>
             <label>
-                position
+                Position
                 <input type="text" name="position" value={entry.position} onChange={handleFieldChange}></input>
             </label>
             <label>

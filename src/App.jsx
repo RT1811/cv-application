@@ -25,6 +25,11 @@ function App() {
     setExperience((prev) => [...prev, newEntry]);
   }
 
+  function addSkill() {
+    const newEntry = { id: crypto.randomUUID(), skill:  "", level: "" }
+    setSkills((prev) => [...prev, newEntry]);
+  }
+
   function updateEntry(setState, id, field, value) {
     setState((prev) =>
       prev.map((entry) =>
@@ -57,8 +62,12 @@ function App() {
           addExperience={addExperience}
           updateExperienceField={(id, field, value) => updateEntry(setExperience, id, field, value)}
           removeExperience={(id) => removeEntry(setExperience, id)} 
+          skill={skills}
+          addSkill={addSkill}
+          updateSkillField={(id, field, value) => updateEntry(setSkills, id, field, value)}
+          removeSkill={(id) => removeEntry(setSkills, id)}
         />
-        <CVPreview personalInfo={personalInfo} education={education} experience={experience} />
+        <CVPreview personalInfo={personalInfo} education={education} experience={experience} skill={skills}/>
       </div>
     </div>
   );

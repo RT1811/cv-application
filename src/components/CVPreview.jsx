@@ -1,4 +1,4 @@
-function CVPreview({ personalInfo, education, experience}) {
+function CVPreview({ personalInfo, education, experience, skills}) {
     return (
         <div className="cv-preview">
             <h2>{personalInfo.name || "Your Name"}</h2>
@@ -18,12 +18,23 @@ function CVPreview({ personalInfo, education, experience}) {
                     <h3>Experience</h3>
                     {experience.map((entry) => (
                         <div key={entry.id}>
-                            <p key={entry.id}>{entry.position} — {entry.company} ({entry.startDate} — {entry.endDate})</p>
-                            <p key={entry.id}>{entry.description}</p>
+                            <p>{entry.position} — {entry.company} ({entry.startDate} — {entry.endDate})</p>
+                            <p>{entry.description}</p>
                         </div>
                     ))}
                 </>
             )}
+            {skills.length > 0 && (
+                <>
+                    <h3>Skills</h3>
+
+                    {skills.map((entry) => (
+                    <p key={entry.id}>
+                        {entry.skill} - {entry.level}
+                    </p>
+                    ))}
+                </>
+                )}
         </div>
     );
 }
