@@ -1,4 +1,4 @@
-function CVForm({personalInformation, setPersonalInformation}) {
+function CVForm({personalInfo, setPersonalInfo}) {
     function handlePersonalInfoChange(e) {
         const { name, value } = e.target;
         setPersonalInformation((prev) => ({...prev, [name]: value}));
