@@ -1,0 +1,8 @@
+.app-layout {
+  display: flex;
+  gap: 3rem;
+}
+
+.cv-form, .cv-preview {
+  flex: 1;
+}

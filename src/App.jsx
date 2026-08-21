@@ -1,8 +1,9 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import CVForm from "./components/CVForm.jsx";
+import CVPreview from "./components/CVPreview.jsx";
 
 function App() {
-  const[personalInfo, seetPersonalInfo] = useState({
+  const[personalInfo, setPersonalInfo] = useState({
     name: "",
     email: "",
     phone: "",
@@ -17,7 +18,11 @@ function App() {
   return (
     <div className="app">
       <h1>CV Application</h1>
-      <CVForm personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
+
+      <div className="app-layout">
+        <CVForm personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
+        <CVPreview personalInfo={personalInfo} />
+      </div>
     </div>
   );
 }
