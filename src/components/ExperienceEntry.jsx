@@ -16,11 +16,11 @@ function ExperienceEntry({ entry, onChange, onRemove }) {
             </label>
             <label>
                 Start Date
-                <input type="text" name="startDate" value={entry.startDate} onChange={handleFieldChange}></input>
+                <input type="date" name="startDate" value={entry.startDate} onChange={handleFieldChange}></input>
             </label>
             <label>
                 End Date
-                <input type="text" name="endDate" value={entry.endDate} onChange={handleFieldChange}></input>
+                <input type="date" name="endDate" value={entry.endDate} onChange={handleFieldChange}></input>
             </label>
             <label>
                 Description
