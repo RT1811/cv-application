@@ -3,8 +3,6 @@ import "./App.css";
 
 import CVForm from "./components/CVForm.jsx";
 import CVPreview from "./components/CVPreview.jsx";
-import EducationEntry from "./components/EducationEntry.jsx";
-import ExperienceEntry from "./components/ExperienceEntry.jsx";
 
 function App() {
   const[personalInfo, setPersonalInfo] = useState({

@@ -17,7 +17,10 @@ function CVPreview({ personalInfo, education, experience}) {
                 <>
                     <h3>Experience</h3>
                     {experience.map((entry) => (
-                        <p key={entry.id}>{entry.position} — {entry.company} ({entry.startDate} — {entry.endDate})</p>
+                        <div key={entry.id}>
+                            <p key={entry.id}>{entry.position} — {entry.company} ({entry.startDate} — {entry.endDate})</p>
+                            <p key={entry.id}>{entry.description}</p>
+                        </div>
                     ))}
                 </>
             )}
