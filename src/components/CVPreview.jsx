@@ -1,3 +1,5 @@
+import "../styles/CVPreview.css";
+
 function CVPreview({ personalInfo, education, experience, skills}) {
     return (
         <div className="cv-preview">
@@ -54,16 +56,19 @@ function CVPreview({ personalInfo, education, experience, skills}) {
                 </>
             )}
             {skills.length > 0 && (
-                <>
+                <section className="preview-section skills-section-preview">
+                    <h3>Skills</h3>
+
                     <div className="skills-preview">
-                        {skills.map((entry) => (
-                            <span className="skill-preview" key={entry.id}>
-                            {entry.skill} — {entry.level}
-                            </span>
-                        ))}
+                    {skills.map((entry) => (
+                        <span className="skill-preview" key={entry.id}>
+                        <strong>{entry.skill}</strong>
+                        <span>{entry.level}</span>
+                        </span>
+                    ))}
                     </div>
-                </>
-                )}
+                </section>
+            )}
         </div>
     );
 }

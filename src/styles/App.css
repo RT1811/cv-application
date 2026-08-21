@@ -1,0 +1,153 @@
+.app-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.cv-form,
+.cv-preview {
+  flex: 1;
+}
+
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.app-layout.submitted .cv-preview {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.personal-info-section,
+.education-section,
+.experience-section,
+.skills-section {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.cv-form h2 {
+  margin-bottom: 1rem;
+}
+
+.cv-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.cv-form input,
+.cv-form select,
+.cv-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.cv-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.cv-form button {
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--accent-border);
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cv-form button:hover {
+  border-color: var(--accent);
+}
+
+.education-entry,
+.experience-entry,
+.skill-entry {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.education-entry:last-of-type,
+.experience-entry:last-of-type,
+.skill-entry:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.cv-preview {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: left;
+}
+
+.cv-preview h2 {
+  margin-bottom: 0.5rem;
+}
+
+.cv-preview h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+@media (max-width: 800px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .cv-form,
+  .cv-preview {
+    width: 100%;
+  }
+}
+
+.edit-submit-button {
+  align-self: center;
+  margin: 1.5rem 0 2rem;
+  padding: 0.8rem 1.5rem;
+
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+
+  background: var(--accent);
+  color: white;
+
+  font: inherit;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.edit-submit-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.edit-submit-button:active {
+  transform: translateY(0);
+}
+
+.edit-submit-button:focus-visible {
+  outline: 3px solid var(--accent-border);
+  outline-offset: 3px;
+}
