@@ -1,7 +1,26 @@
 import { useState } from "react";
 import "./App.css";
+
 import CVForm from "./components/CVForm.jsx";
 import CVPreview from "./components/CVPreview.jsx";
+import EducationEntry from "./components/EducationEntry.jsx";
+
+function addEducation() {
+  const newEntry = { id: crypto.randomUUID(), school: "", degree: "", year: "" };
+  setEducation((prev) => [...prev, newEntry]);
+}
+
+function updateEducationField(id, field, value) {
+  setEducation((prev) =>
+    prev.map((entry) =>
+      entry.id === id ? { ...entry, [field]: value } : entry
+    )
+  );
+}
+
+function removeEducation(id) {
+  setEducation((prev) => prev.filter((entry) => entry.id !== id));
+}
 
 function App() {
   const[personalInfo, setPersonalInfo] = useState({
@@ -21,8 +40,15 @@ function App() {
       <h1>CV Application</h1>
 
       <div className="app-layout">
-        <CVForm personalInfo={personalInfo} setPersonalInfo={setPersonalInfo} />
-        <CVPreview personalInfo={personalInfo} />
+        <CVForm 
+          personalInfo={personalInfo} 
+          setPersonalInfo={setPersonalInfo}
+          education={education}
+          addEducation={addEducation}
+          updateEducationField={updateEducationField}
+          removeEducation={removeEducation} 
+        />
+        <CVPreview personalInfo={personalInfo} education={education} />
       </div>
     </div>
   );

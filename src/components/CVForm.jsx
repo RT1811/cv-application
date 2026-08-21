@@ -1,4 +1,6 @@
-function CVForm({personalInfo, setPersonalInfo}) {
+import EducationEntry from "./EducationEntry";
+
+function CVForm({personalInfo, setPersonalInfo, education, addEducation, updateEducationField, removeEducation}) {
     function handlePersonalInfoChange(e) {
         const { name, value } = e.target;
         setPersonalInfo((prev) => ({...prev, [name]: value}));
@@ -34,6 +36,17 @@ function CVForm({personalInfo, setPersonalInfo}) {
                 onChange={handlePersonalInfoChange}
                 />
             </label>
+
+            <h2>Education</h2>
+            {education.map((entry) => (
+                <EducationEntry
+                    key={entry.id}
+                    entry={entry}
+                    onChange={updateEducationField}
+                    onRemove={removeEducation}
+                />
+            ))}
+            <button type="button" onClick={addEducation}>Add Education</button>
         </div>
     )
 }
