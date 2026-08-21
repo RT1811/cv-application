@@ -1,5 +1,6 @@
 import EducationEntry from "./EducationEntry";
 import ExperienceEntry from "./ExperienceEntry";
+import SkillEntry from "./SkillEntry";
 
 function CVForm({personalInfo, setPersonalInfo, education, addEducation, updateEducationField, removeEducation, experience, addExperience, updateExperienceField, removeExperience, skills, addSkill, updateSkillField, removeSkill}) {
     function handlePersonalInfoChange(e) {

@@ -62,12 +62,12 @@ function App() {
           addExperience={addExperience}
           updateExperienceField={(id, field, value) => updateEntry(setExperience, id, field, value)}
           removeExperience={(id) => removeEntry(setExperience, id)} 
-          skill={skills}
+          skills={skills}
           addSkill={addSkill}
           updateSkillField={(id, field, value) => updateEntry(setSkills, id, field, value)}
           removeSkill={(id) => removeEntry(setSkills, id)}
         />
-        <CVPreview personalInfo={personalInfo} education={education} experience={experience} skill={skills}/>
+        <CVPreview personalInfo={personalInfo} education={education} experience={experience} skills={skills}/>
       </div>
     </div>
   );

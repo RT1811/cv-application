@@ -1,4 +1,4 @@
-function Skills({ entry, onChange, onRemove }) {
+function SkillEntry({ entry, onChange, onRemove }) {
   function handleFieldChange(e) {
     const { name, value } = e.target;
     onChange(entry.id, name, value);
@@ -37,3 +37,5 @@ function Skills({ entry, onChange, onRemove }) {
     </div>
   );
 }
+
+export default SkillEntry;
