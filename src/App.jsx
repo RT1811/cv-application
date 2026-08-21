@@ -14,6 +14,7 @@ function App() {
   const[education, setEducation] = useState([]);
   const[experience,  setExperience] = useState([]);
   const[skills, setSkills] = useState([]);
+  const [isEditing, setIsEditing] = useState(true);
 
   function addEducation() {
     const newEntry = { id: crypto.randomUUID(), school: "", degree: "", year: "" };
@@ -51,24 +52,55 @@ function App() {
       <h1>CV Application</h1>
 
       <div className="app-layout">
-        <CVForm 
-          personalInfo={personalInfo} 
-          setPersonalInfo={setPersonalInfo}
+        {isEditing && (
+          <CVForm
+            personalInfo={personalInfo}
+            setPersonalInfo={setPersonalInfo}
+
+            education={education}
+            addEducation={addEducation}
+            updateEducationField={(id, field, value) =>
+              updateEntry(setEducation, id, field, value)
+            }
+            removeEducation={(id) =>
+              removeEntry(setEducation, id)
+            }
+
+            experience={experience}
+            addExperience={addExperience}
+            updateExperienceField={(id, field, value) =>
+              updateEntry(setExperience, id, field, value)
+            }
+            removeExperience={(id) =>
+              removeEntry(setExperience, id)
+            }
+
+            skills={skills}
+            addSkill={addSkill}
+            updateSkillField={(id, field, value) =>
+              updateEntry(setSkills, id, field, value)
+            }
+            removeSkill={(id) =>
+              removeEntry(setSkills, id)
+            }
+          />
+        )}
+
+        <CVPreview
+          personalInfo={personalInfo}
           education={education}
-          addEducation={addEducation}
-          updateEducationField={(id, field, value) => updateEntry(setEducation, id, field, value)}
-          removeEducation={(id) => removeEntry(setEducation, id)} 
           experience={experience}
-          addExperience={addExperience}
-          updateExperienceField={(id, field, value) => updateEntry(setExperience, id, field, value)}
-          removeExperience={(id) => removeEntry(setExperience, id)} 
           skills={skills}
-          addSkill={addSkill}
-          updateSkillField={(id, field, value) => updateEntry(setSkills, id, field, value)}
-          removeSkill={(id) => removeEntry(setSkills, id)}
         />
-        <CVPreview personalInfo={personalInfo} education={education} experience={experience} skills={skills}/>
       </div>
+
+      <button
+      className="edit-submit-button"
+        type="button"
+        onClick={() => setIsEditing((prev) => !prev)}
+      >
+        {isEditing ? "Submit CV" : "Edit CV"}
+      </button>
     </div>
   );
 }
