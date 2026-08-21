@@ -48,7 +48,7 @@ function App() {
   }
   
   return (
-    <div className="app">
+    <main className="app">
       <h1>CV Application</h1>
 
       <div className="app-layout">
@@ -101,7 +101,7 @@ function App() {
       >
         {isEditing ? "Submit CV" : "Edit CV"}
       </button>
-    </div>
+    </main>
   );
 }
 
