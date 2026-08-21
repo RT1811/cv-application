@@ -4,6 +4,7 @@ import "./App.css";
 import CVForm from "./components/CVForm.jsx";
 import CVPreview from "./components/CVPreview.jsx";
 import EducationEntry from "./components/EducationEntry.jsx";
+import ExperienceEntry from "./components/ExperienceEntry.jsx";
 
 function App() {
   const[personalInfo, setPersonalInfo] = useState({
@@ -56,8 +57,8 @@ function App() {
           removeEducation={(id) => removeEntry(setEducation, id)} 
           experience={experience}
           addExperience={addExperience}
-          updateEducationField={(id, field, value) => updateEntry(setExperience, id, field, value)}
-          removeEducation={(id) => removeEntry(setExperience, id)} 
+          updateExperienceField={(id, field, value) => updateEntry(setExperience, id, field, value)}
+          removeExperience={(id) => removeEntry(setExperience, id)} 
         />
         <CVPreview personalInfo={personalInfo} education={education} experience={experience} />
       </div>
