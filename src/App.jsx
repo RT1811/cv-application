@@ -5,23 +5,6 @@ import CVForm from "./components/CVForm.jsx";
 import CVPreview from "./components/CVPreview.jsx";
 import EducationEntry from "./components/EducationEntry.jsx";
 
-function addEducation() {
-  const newEntry = { id: crypto.randomUUID(), school: "", degree: "", year: "" };
-  setEducation((prev) => [...prev, newEntry]);
-}
-
-function updateEducationField(id, field, value) {
-  setEducation((prev) =>
-    prev.map((entry) =>
-      entry.id === id ? { ...entry, [field]: value } : entry
-    )
-  );
-}
-
-function removeEducation(id) {
-  setEducation((prev) => prev.filter((entry) => entry.id !== id));
-}
-
 function App() {
   const[personalInfo, setPersonalInfo] = useState({
     name: "",
@@ -33,7 +16,22 @@ function App() {
   const[experience,  setExperience] = useState([]);
   const[skills, setSkills] = useState([]);
 
-  console.log({ personalInfo, education, experience, skills });
+  function addEducation() {
+    const newEntry = { id: crypto.randomUUID(), school: "", degree: "", year: "" };
+    setEducation((prev) => [...prev, newEntry]);
+  }
+
+  function updateEducationField(id, field, value) {
+    setEducation((prev) =>
+      prev.map((entry) =>
+        entry.id === id ? { ...entry, [field]: value } : entry
+      )
+    );
+  }
+
+  function removeEducation(id) {
+    setEducation((prev) => prev.filter((entry) => entry.id !== id));
+  }
   
   return (
     <div className="app">
