@@ -27,7 +27,7 @@ function App() {
     setExperience((prev) => [...prev, newEntry]);
   }
 
-  function updateEntry(setState, id, field, vlaue) {
+  function updateEntry(setState, id, field, value) {
     setState((prev) =>
       prev.map((entry) =>
         entry.id === id

@@ -1,7 +1,7 @@
 import EducationEntry from "./EducationEntry";
 import ExperienceEntry from "./ExperienceEntry";
 
-function CVForm({personalInfo, setPersonalInfo, education, addEducation, updateEducationField, removeEducation, experience, addExperience, updateExperienceField, remoevExperience}) {
+function CVForm({personalInfo, setPersonalInfo, education, addEducation, updateEducationField, removeEducation, experience, addExperience, updateExperienceField, removeExperience}) {
     function handlePersonalInfoChange(e) {
         const { name, value } = e.target;
         setPersonalInfo((prev) => ({...prev, [name]: value}));
@@ -48,14 +48,14 @@ function CVForm({personalInfo, setPersonalInfo, education, addEducation, updateE
                 />
             ))}
             <button type="button" onClick={addEducation}>Add Education</button>
-            
+
             <h2>Experience</h2>
             {experience.map((entry) => (
-                <EducationEntry
+                <ExperienceEntry
                     key={entry.id}
                     entry={entry}
                     onChange={updateExperienceField}
-                    onRemove={remoevExperience}
+                    onRemove={removeExperience}
                 />
             ))}
             <button type="button" onClick={addExperience}>Add Experience</button>
