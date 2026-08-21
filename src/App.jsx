@@ -21,16 +21,25 @@ function App() {
     setEducation((prev) => [...prev, newEntry]);
   }
 
-  function updateEducationField(id, field, value) {
-    setEducation((prev) =>
+  function addExperience() {
+    const newEntry = { id: crypto.randomUUID(), company: "", position: "", startDate: "", endDate: "", description: "" };
+    setExperience((prev) => [...prev, newEntry]);
+  }
+
+  function updateEntry(setState, id, field, vlaue) {
+    setState((prev) =>
       prev.map((entry) =>
-        entry.id === id ? { ...entry, [field]: value } : entry
+        entry.id === id
+          ? { ...entry, [field]: value }
+          : entry
       )
     );
   }
 
-  function removeEducation(id) {
-    setEducation((prev) => prev.filter((entry) => entry.id !== id));
+  function removeEntry(setState, id) {
+    setState((prev) =>
+      prev.filter((entry) => entry.id !== id)
+    );
   }
   
   return (
@@ -43,10 +52,14 @@ function App() {
           setPersonalInfo={setPersonalInfo}
           education={education}
           addEducation={addEducation}
-          updateEducationField={updateEducationField}
-          removeEducation={removeEducation} 
+          updateEducationField={(id, field, value) => updateEntry(setEducation, id, field, value)}
+          removeEducation={(id) => removeEntry(setEducation, id)} 
+          experience={experience}
+          addExperience={addExperience}
+          updateEducationField={(id, field, value) => updateEntry(setExperience, id, field, value)}
+          removeEducation={(id) => removeEntry(setExperience, id)} 
         />
-        <CVPreview personalInfo={personalInfo} education={education} />
+        <CVPreview personalInfo={personalInfo} education={education} experience={experience} />
       </div>
     </div>
   );
