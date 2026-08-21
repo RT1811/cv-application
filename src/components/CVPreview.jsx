@@ -9,7 +9,19 @@ function CVPreview({ personalInfo, education, experience, skills}) {
                 <>
                     <h3>Education</h3>
                     {education.map((entry) => (
-                        <p key={entry.id}>{entry.degree} — {entry.school} ({entry.year})</p>
+                        <div className="preview-entry" key={entry.id}>
+                            <p className="preview-entry-title">
+                            {entry.degree}
+                            </p>
+
+                            <p className="preview-entry-subtitle">
+                            {entry.school}
+                            </p>
+
+                            <p className="preview-entry-date">
+                            {entry.year}
+                            </p>
+                        </div>
                     ))}
                 </>
             )}
@@ -17,22 +29,39 @@ function CVPreview({ personalInfo, education, experience, skills}) {
                 <>
                     <h3>Experience</h3>
                     {experience.map((entry) => (
-                        <div key={entry.id}>
-                            <p>{entry.position} — {entry.company} ({entry.startDate} — {entry.endDate})</p>
-                            <p>{entry.description}</p>
-                        </div>
+                        <div className="preview-entry" key={entry.id}>
+                            <div className="experience-heading">
+                                <div>
+                                <p className="preview-entry-title">
+                                    {entry.position}
+                                </p>
+
+                                <p className="preview-entry-subtitle">
+                                    {entry.company}
+                                </p>
+                                </div>
+
+                                <p className="preview-entry-date">
+                                {entry.startDate} — {entry.endDate}
+                                </p>
+                            </div>
+
+                            <p className="experience-description">
+                                {entry.description}
+                            </p>
+                            </div>
                     ))}
                 </>
             )}
             {skills.length > 0 && (
                 <>
-                    <h3>Skills</h3>
-
-                    {skills.map((entry) => (
-                    <p key={entry.id}>
-                        {entry.skill} - {entry.level}
-                    </p>
-                    ))}
+                    <div className="skills-preview">
+                        {skills.map((entry) => (
+                            <span className="skill-preview" key={entry.id}>
+                            {entry.skill} — {entry.level}
+                            </span>
+                        ))}
+                    </div>
                 </>
                 )}
         </div>
